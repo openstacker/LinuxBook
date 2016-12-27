@@ -20,5 +20,11 @@
     * Netfilter
     * Kernel
 * [高可用](高可用.md)
+    * HA基础知识
+    * Haproxy
+    * keepalive
+    * pcs
+    * multipath
+    * lvm cluster
 * [性能调优](性能调优.md)
 
