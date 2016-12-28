@@ -42,4 +42,7 @@ size=20GB features="0" hwhandler="0" wp=rw
 | |- 20:0:0:0 sdb 8:16 active ready running
 \-+- policy='round-robin 0' prio=10 status=enable
   |- 20:0:0:0 sdc 8:17 active ready running
+$ ls /dev/mapper/
+control    mpatha
 ```
+最终可以看到生成了一块multipath设备且名为mpatha。
