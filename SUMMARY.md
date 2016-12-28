@@ -22,7 +22,7 @@
 * [高可用](高可用.md)
     * [HA基础知识](ha基础知识.md)
     * [Haproxy](haproxy.md)
-    * [keepalive](keepalive.md)
+    * [keepalived](keepalive.md)
     * [pcs](pcs.md)
     * [multipath](multipath.md)
     * [lvm cluster](lvm-cluster.md)
