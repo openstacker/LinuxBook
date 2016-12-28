@@ -23,17 +23,16 @@ global_defs {
 }
 
 vrrp_instance VI_1 {
-    state MASTER
-    interface eno16777736
-    virtual_router_id 51
-    priority 101
+    interface eno16777736   #接口名称
+    virtual_router_id 51    #所有节点该id要一致
+    priority 101            #优先级大的节点会优先成为主节点
 
-    authentication {
+    authentication {        #所有节点的auth信息要一致
         auth_type PASS
         auth_pass 1111
     }
 
-    virtual_ipaddress {
+    virtual_ipaddress {    #维护的虚拟IP地址
         192.168.123.100
     }
 }
@@ -46,7 +45,6 @@ global_defs {
 }
 
 vrrp_instance VI_1 {
-    state SLAVE
     interface eno16777736
     virtual_router_id 51
     priority 100
