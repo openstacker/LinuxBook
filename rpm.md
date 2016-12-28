@@ -22,12 +22,22 @@ python-swiftclient-2.6.0-1.el7.noarch
 * el7： 软件包发行商版本
 * noarch： 使用硬件平台
 
-1. 发行商版本有： el7 RHEL 7.x\(Red Hat Enterprise Linux\)/CentOS 7.x
-2. 包名中带有 devel： 说明是 rpm 包是开发包。
-3. rpm 操作平台：
-   * i386：适用于大部分 X86 平台，i 指的是 Intel 兼容CPU， 386 指的是 CPU 等级。 
-   * x86\_64：针对64位的CPU
-   * noarch： 没有任何硬件等级上的限制，rpm 包里没有 binary，通常是 shell script。
+* 发行商版本有： el7 RHEL 7.x\(Red Hat Enterprise Linux\)/CentOS 7.x
+
+* 包名中带有 devel： 说明是 rpm 包是开发包。
+* rpm 操作平台：
+  * i386：适用于大部分 X86 平台，i 指的是 Intel 兼容CPU， 386 指的是 CPU 等级。 
+  * x86\_64：针对64位的CPU
+  * noarch： 没有任何硬件等级上的限制，rpm 包里没有 binary，通常是 shell script。
+  
+```
+$ rpm -qi python
+Name        : python
+Version     : 2.7.5
+Release     : 34.el7
+Architecture: x86_64
+...
+```
 
 ## yum 工具
 
@@ -48,4 +58,29 @@ refer: [http://cn.linux.vbird.org/linux\_basic/0520rpm\_and\_srpm.php](http://cn
 | /usr/share/man | man page |
 
 
+## rpm 
+rpm 安装
+```
+rpm -ivh
+# -i install
+# -v verbose
+# -h human-readable
+```
 
+rpm 升级
+```
+rpm -Uvh / rpm -Fvh
+# -Uvh 升级过程中发现没有相应的包，则去下载
+# -Fvh 升级过程中发现没有相应的包，则软件不会被升级
+```
+
+rpm 查询
+rpm 进行查询时，其实在查询 /var/lib/rpm/ 目录下的信息
+```
+$ rpm -q python
+python-2.7.5-34.el7.x86_64
+
+# -q <pkgname>: 查看 <pkgname> 软件是否安装
+# -qa: 查看所有安装的软件
+# -qi <pkgname>: 列出 pkgname 的所有 information
+```
