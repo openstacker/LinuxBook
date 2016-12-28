@@ -25,7 +25,6 @@
     * [Haproxy](haproxy.md)
     * [PCS](pcs.md)
     * [Multipath](multipath.md)
-    * [Lvm cluster](lvm-cluster.md)
 * [性能调优](性能调优.md)
     * [Tuning基础](tuning基础.md)
     * [Gathering](gathering.md)
