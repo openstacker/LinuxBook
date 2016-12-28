@@ -123,7 +123,4 @@ $ ip a
        valid_lft forever preferred_lft forever
     inet6 fe80::20c:29ff:fe79:3276/64 scope link 
        valid_lft forever preferred_lft forever
-```
-
-
-##使用示例
+``·
