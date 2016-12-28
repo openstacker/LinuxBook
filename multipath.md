@@ -27,4 +27,19 @@ blacklist {
     wwid 3600508e000000000dc7200032e08af0b    #wwid与devnode二选一，建议使用devnode
     devnode "^sda$"    
 }
+multipaths {
+    multipath {
+        wwid 3600508e000000000dc7200032e08af0c
+        alias mpatha    #为该multipath设备创建一个别名    
+    }
+}
+$ modprobe dm_multipath
+$ systemctl restart multipathd
+$ multipath -ll
+mpatha (3600508e000000000dc7200032e08af0c)
+size=20GB features="0" hwhandler="0" wp=rw
+|-+- policy='round-robin 0' prio=50 status=active
+| |- 20:0:0:0 sdb 8:16 active ready running
+\-+- policy='round-robin 0' prio=10 status=enable
+  |- 20:0:0:0 sdc 8:17 active ready running
 ```
