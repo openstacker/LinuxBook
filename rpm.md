@@ -15,6 +15,20 @@ srpm 类似 rpm， 但是提供的是没有编译过的包。
 | SRPM | xxx.src.rpm|不可以  |未编译  | 可 |
 
 
+rpm 包命名规则
+python-swiftclient-2.6.0-1.el7.noarch
+- pytho-swiftclient: 软件包名
+- 2.6.0-1： 版本号
+- el7： 软件包发行商版本
+- noarch： 使用硬件平台
 
 
+1. 发行商版本有： el7 RHEL 7.x(Red Hat Enterprise Linux)/CentOS 7.x
+2. 包名中带有 devel： 说明是 rpm 包是开发包。
+3. rpm 操作平台：
+  - i386：适用于大部分 X86 平台，i 指的是 Intel 兼容CPU， 386 指的是 CPU 等级。 
+  - x86_64：针对64位的CPU
+  - noarch： 没有任何硬件等级上的限制，rpm 包里没有 binary，通常是 shell script。
+  
+  
 
