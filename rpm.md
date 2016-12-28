@@ -80,13 +80,19 @@ rpm 进行查询时，其实在查询 /var/lib/rpm/ 目录下的信息
 $ rpm -q python
 python-2.7.5-34.el7.x86_64
 
-# -q <pkg>: 查看 <pkg> 软件是否安装 (query)
+# 针对软件
+# -q <software>: 查看 <software> 软件是否安装 (query)
 # -qa: 查看所有安装的软件 (query all)
-# -qi <pkg>: 列出 pkg 的所有 information (query information)
-# -ql <pkg>: 列出 pkg 所有文件的安装位置 （query location）
-# -qc <pkg>: 列出 pkg 所有的 configuration 文件安装位置（query configuration）
-# -qd <pkg>: 列出 pkg 所有说明文档 (query docfile)
-# -qR <pkg>: 列出 pkg 所有依赖 （query required）
-# -qf <sinppet-pkg>: 查出 sinppet-pkg 是属于哪个已安装的软件
-# -qp : -qpR, --qpc (query package) 这个命令针对的是 rpm 包并不是某个软件。
+# -qi <software>: 列出 pkg 的所有 information (query information)
+# -ql <software>: 列出 pkg 所有文件的安装位置 （query location）
+# -qc <software>: 列出 pkg 所有的 configuration 文件安装位置（query configuration）
+# -qd <software>: 列出 pkg 所有说明文档 (query docfile)
+# -qR <software>: 列出 pkg 所有依赖 （query required）
+# -qf <software-sinppet>: 查出 sinppet-pkg 是属于哪个已安装的软件
+
+# 针对package
+# -qp <pkg>: -qpR <pkg>, -qpc <pkg> (query package) 这个命令针对的是 rpm 包并不是某个软件。
 ```
+在查询本机上面的 RPM 软件相关资讯时， 不需要加上版本的名称，只要加上软件名称即可！因为他会由 /var/lib/rpm 这个数据库里面去查询， 所以我们可以不需要加上版本名称。但是查询某个 RPM 文件就不同了，我们必须要列出整个文件的完整档名才行（-qp）。
+
+
