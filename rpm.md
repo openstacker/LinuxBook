@@ -80,7 +80,13 @@ rpm 进行查询时，其实在查询 /var/lib/rpm/ 目录下的信息
 $ rpm -q python
 python-2.7.5-34.el7.x86_64
 
-# -q <pkgname>: 查看 <pkgname> 软件是否安装
-# -qa: 查看所有安装的软件
-# -qi <pkgname>: 列出 pkgname 的所有 information
+# -q <pkg>: 查看 <pkg> 软件是否安装 (query)
+# -qa: 查看所有安装的软件 (query all)
+# -qi <pkg>: 列出 pkg 的所有 information (query information)
+# -ql <pkg>: 列出 pkg 所有文件的安装位置 （query location）
+# -qc <pkg>: 列出 pkg 所有的 configuration 文件安装位置（query configuration）
+# -qd <pkg>: 列出 pkg 所有说明文档 (query docfile)
+# -qR <pkg>: 列出 pkg 所有依赖 （query required）
+# -qf <pkg>: 
+# -qp 
 ```
