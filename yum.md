@@ -115,6 +115,8 @@ yum repository 文件中参数解释：
  yum repolist all
 
 由於使用的容器版本有新旧之分，你得要知道， yum 会先下载容器的清单到本机的 /var/cache/yum 里面去！那我们修改了网址却没有修改容器名称 (中刮号内的文字)， 可能就会造成本机的清单与 yum 服务器的清单不同步，此时就会出现无法升级的问题了。
+
+
 yum clean [packages|headers|all] 
 ```
 选项与参数：
