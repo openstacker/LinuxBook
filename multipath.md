@@ -18,11 +18,14 @@ $ sudo yum install device-mapper-multipath
 
 在最一开始，需要将无需使用multipath管理的磁盘加入到黑名单中以避免出现问题，建议尽量使用磁盘的WWID而不是使用磁盘名称，因为不能确保重启后磁盘仍为同一名称。
 ```shell
+$ ls /dev/sd*
+/dev/sda  /dev/sda1  /dev/sdb  /dev/sdc    #sdb与sdc为存储后端一块磁盘通过两条路径连接到本机器
 $ scsi_id -g -u -s /block/sda    #获取sda的wwid
 3600508e000000000dc7200032e08af0b
 $ cat /etc/multipath.conf
 blacklist {
-    wwid 35000c5005e7abebf    #wwid与devnode二选一，建议使用devnode
+    wwid 3600508e000000000dc7200032e08af0b    #wwid与devnode二选一，建议使用devnode
     devnode "^sda$"    
 }
+
 ```
