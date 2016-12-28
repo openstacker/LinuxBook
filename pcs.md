@@ -86,7 +86,7 @@ systemd:wpa_supplicant
 
 增加一个集群中的资源
 ```shell
-$ pcs resource create VirtualIP ocf:heartbeat:IPaddr2 ip=192.168.123.101 cidr_netmask=24 nic=eno16777736 op monitor interval=5s
+$ pcs resource create VirtualIP ocf:heartbeat:IPaddr2 ip=192.168.123.101 cidr_netmask=24 nic=eno16777736 op monitor interval=5s   #创建一个IPaddr2类型的资源，在eno16777736接口上维护一个192.168.123.101/24的地址，每5s检查一次
 $ pcs status
 Cluster name: my_cluster
 Last updated: Thu Dec 29 00:52:58 2016		Last change: Thu Dec 29 00:52:55 2016 by root via cibadmin on pcs1
