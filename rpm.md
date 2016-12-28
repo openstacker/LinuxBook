@@ -167,3 +167,15 @@ $ rpm -Vf gnocchi.conf
 .......T.  c /etc/gnocchi/api-paste.ini
 S.5....T.  c /etc/gnocchi/gnocchi.conf
 ```
+
+### rpm 导入 publickey 用于不同发布商数字签名验证
+```
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+```
+
+### rpm 删除软件
+```
+# 被依赖的文件删除不了
+rpm -e pam
+```
+
