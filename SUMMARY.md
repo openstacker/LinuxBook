@@ -23,7 +23,7 @@
     * [HA基础知识](ha基础知识.md)
     * [Keepalived](keepalive.md)
     * [Haproxy](haproxy.md)
-    * [pcs](pcs.md)
+    * [PCS](pcs.md)
     * [multipath](multipath.md)
     * [lvm cluster](lvm-cluster.md)
 * [性能调优](性能调优.md)
