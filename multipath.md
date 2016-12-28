@@ -27,5 +27,4 @@ blacklist {
     wwid 3600508e000000000dc7200032e08af0b    #wwid与devnode二选一，建议使用devnode
     devnode "^sda$"    
 }
-
 ```
