@@ -87,6 +87,6 @@ python-2.7.5-34.el7.x86_64
 # -qc <pkg>: 列出 pkg 所有的 configuration 文件安装位置（query configuration）
 # -qd <pkg>: 列出 pkg 所有说明文档 (query docfile)
 # -qR <pkg>: 列出 pkg 所有依赖 （query required）
-# -qf <pkg>: 
-# -qp 
+# -qf <sinppet-pkg>: 查出 sinppet-pkg 是属于哪个已安装的软件
+# -qp : -qpR, --qpc (query package) 这个命令针对的是 rpm 包并不是某个软件。
 ```
