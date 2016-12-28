@@ -82,3 +82,45 @@ yum [option] [查询工作项目] [相关参数]
 yum [remove] 软件
 会先解决依赖问题。
 
+
+### yum 配置repository
+
+repository 文件位置/etc/yum.repos.d/: 例/etc/yum.repos.d/CentOS-Base.repo
+repository 文件必须以 repo 结尾。
+
+yum repository 文件中参数解释：
+- [base]：代表容器的名字！中刮号一定要存在，里面的名称则可以随意取。但是不能有两个相同的容器名称， 否则 yum 会不晓得该到哪里去找容器相关软件清单文件。
+
+- name：只是说明一下这个容器的意义而已，重要性不高！
+
+- mirrorlist=：列出这个容器可以使用的映射站台，如果不想使用，可以注解到这行；
+
+- baseurl=：这个最重要，因为后面接的就是容器的实际网址！ mirrorlist 是由 yum 程序自行去捉映射站台， baseurl 则是指定固定的一个容器网址！我们刚刚找到的网址放到这里来啦！
+
+- enable=1：就是让这个容器被启动。如果不想启动可以使用 enable=0 喔！
+
+- gpgcheck=1：这就是指定是否需要查阅 RPM 文件内的数字签名！
+
+- gpgkey=：就是数码签章的公钥档所在位置！使用默认值即可
+
+更换repository
+
+1. mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+2. cd /etc/yum.repos.d/
+3. wget http://mirrors.163.com/.help/CentOS7-Base-163.repo
+4. yum clean all
+5. yum makecache
+
+列出当前配置的repository
+ yum repolist all
+
+由於使用的容器版本有新旧之分，你得要知道， yum 会先下载容器的清单到本机的 /var/cache/yum 里面去！那我们修改了网址却没有修改容器名称 (中刮号内的文字)， 可能就会造成本机的清单与 yum 服务器的清单不同步，此时就会出现无法升级的问题了。
+# yum clean [packages|headers|all] 
+```
+选项与参数：
+ packages：将已下载的软件文件删除
+ headers ：将下载的软件档头删除
+ all     ：将所有容器数据都删除！
+```
+
+
