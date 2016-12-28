@@ -80,7 +80,7 @@ rpm 进行查询时，其实在查询 /var/lib/rpm/ 目录下的信息
 $ rpm -q python
 python-2.7.5-34.el7.x86_64
 
-# 针对软件
+# 针对软件 （软件包名）
 # -q <software>: 查看 <software> 软件是否安装 (query)
 # -qa: 查看所有安装的软件 (query all)
 # -qi <software>: 列出 pkg 的所有 information (query information)
@@ -92,9 +92,78 @@ python-2.7.5-34.el7.x86_64
 
 # 针对package
 # -qp <pkg>: -qpR <pkg>, -qpc <pkg> (query package) 这个命令针对的是 rpm 包并不是某个软件。
+$ rpm -qpR zabbix-agent-3.0.5-1.el7.x86_64.rpm
+warning: zabbix-agent-3.0.5-1.el7.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 79ea5ed4: NOKEY
+/bin/sh
+/bin/sh
+/bin/sh
+/bin/sh
+/usr/sbin/useradd
+config(zabbix-agent) = 3.0.5-1.el7
+libc.so.6()(64bit)
+libc.so.6(GLIBC_2.14)(64bit)
+libc.so.6(GLIBC_2.15)(64bit)
+libc.so.6(GLIBC_2.17)(64bit)
+libc.so.6(GLIBC_2.2.5)(64bit)
+libc.so.6(GLIBC_2.3)(64bit)
+libc.so.6(GLIBC_2.3.4)(64bit)
+libc.so.6(GLIBC_2.4)(64bit)
+libc.so.6(GLIBC_2.7)(64bit)
+libcrypto.so.10()(64bit)
+libcrypto.so.10(OPENSSL_1.0.1)(64bit)
+libcrypto.so.10(OPENSSL_1.0.1_EC)(64bit)
+libcrypto.so.10(libcrypto.so.10)(64bit)
+libcurl.so.4()(64bit)
+libdl.so.2()(64bit)
+libdl.so.2(GLIBC_2.2.5)(64bit)
+liblber-2.4.so.2()(64bit)
+libldap-2.4.so.2()(64bit)
+libm.so.6()(64bit)
+libresolv.so.2()(64bit)
+libresolv.so.2(GLIBC_2.2.5)(64bit)
+libssl.so.10()(64bit)
+libssl.so.10(libssl.so.10)(64bit)
+logrotate
+rpmlib(CompressedFileNames) <= 3.0.4-1
+rpmlib(FileDigests) <= 4.6.0-1
+rpmlib(PayloadFilesHavePrefix) <= 4.0-1
+rtld(GNU_HASH)
+systemd
+systemd
+rpmlib(PayloadIsXz) <= 5.2-1
 ```
 在查询本机上面的 RPM 软件相关资讯时， 不需要加上版本的名称，只要加上软件名称即可！因为他会由 /var/lib/rpm 这个数据库里面去查询， 所以我们可以不需要加上版本名称。但是查询某个 RPM 文件就不同了，我们必须要列出整个文件的完整档名才行（-qp）。
 
 ###rpm 验证
 
 > 验证 (Verify) 的功能主要在於提供系统管理员一个有用的管理机制！作用的方式是『使用 /var/lib/rpm 底下的数据库内容来比对目前 Linux 系统的环境下的所有软件文件 』也就是说，当你有数据不小心遗失， 或者是因为你误杀了某个软件的文件，或者是不小心不知道修改到某一个软件的文件内容， 就用这个简单的方法来验证一下原本的文件系统吧！好让你了解这一阵子到底是修改到哪些文件数据了！验证的方式很简单
+
+```
+# 查看所有被改动过的文件
+$ rpm -Va
+S.5....T.  c /etc/neutron/plugins/ml2/ml2_conf.ini
+.M.......    /var/run/resource-agents
+S.5....T.  c /etc/ssh/ssh_config
+S.5....T.  c /etc/logrotate.d/syslog
+S.5....T.  c /etc/rsyslog.conf
+S.5....T.  c /etc/sysconfig/rsyslog
+
+# 查看以安装的软件是否被改动过
+$ rpm -V openstack-ceilometer-common-5.0.2-1.el7.noarch
+S.5....T.  c /etc/ceilometer/ceilometer.conf
+..5....T.  c /etc/ceilometer/pipeline.yaml
+
+$ rpm -V openstack-ceilometer-common
+S.5....T.  c /etc/ceilometer/ceilometer.conf
+..5....T.  c /etc/ceilometer/pipeline.yaml
+
+# 查看某个rpm包中文件否改动过
+$ rpm -Vp zabbix-agent-3.0.5-1.el7.x86_64.rpm
+warning: zabbix-agent-3.0.5-1.el7.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 79ea5ed4: NOKEY
+S.5....T.  c /etc/zabbix/zabbix_agentd.conf
+
+# 查看在系统上的某个文件是否被改动过
+$ rpm -Vf gnocchi.conf
+.......T.  c /etc/gnocchi/api-paste.ini
+S.5....T.  c /etc/gnocchi/gnocchi.conf
+```
