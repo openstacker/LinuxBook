@@ -179,3 +179,33 @@ rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 rpm -e pam
 ```
 
+经常增删改查 /var/lib/rpm/ 目录，可能导致这个破损
+```
+# 从新 build /var/lib/rpm 目录
+rpm --rebuilddb
+```
+
+## 处理 srpm 文件
+srpm 包是被打包的 source code。 
+
+### 编译安装 srpm 包
+下载一个 srpm 如果想"编译"和"生成 rpm" 用：
+```
+rpmbuild --rebuild 
+```
+下载一个 srpm 如果想"编译","生成 rpm" 和"安装到主机"  用：
+```
+rpmbuild --recompile
+```
+
+### 如何打包一个 rpm
+refer: http://cn.linux.vbird.org/linux_basic/0520rpm_and_srpm.php
+
+
+
+
+
+
+
+
+
