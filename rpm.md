@@ -30,5 +30,9 @@ python-swiftclient-2.6.0-1.el7.noarch
   - x86_64：针对64位的CPU
   - noarch： 没有任何硬件等级上的限制，rpm 包里没有 binary，通常是 shell script。
   
-  
+## yum 工具
+yum 工具主要用于解决下载 rpm 包，用于解决包的依赖性等问题。
 
+refer: http://cn.linux.vbird.org/linux_basic/0520rpm_and_srpm.php
+
+## rpm 工具
