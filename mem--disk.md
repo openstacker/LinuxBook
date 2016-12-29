@@ -26,12 +26,7 @@ bob    hard    rss    15000
 1. 产生kernel panic
 2. 选择几个最“适合”的进程，启用oom-killer，释放内存
 
-sysctl\_panic\_on\_oom内核参数的配置就是针对这种情况下两种不同的动作而存在的，动态路径为/proc/sys/vm/panic\_on\_oom
+sysctl\_panic\_on\_oom内核参数的配置就是针对这种情况下两种不同的动作而存在的，动态路径为/proc/sys/vm/panic\_on\_oom。
 
-
-
-
-
-
-
+如果选择第二种方式，那么就引入了一个新的问题，
 
