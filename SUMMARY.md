@@ -28,7 +28,6 @@
 * [性能调优](性能调优.md)
     * [Tuning基础](tuning基础.md)
     * [基础工具](gathering.md)
-    * [Mem + Disk](mem--disk.md)
-    * [Network](network.md)
+    * [Mem Disk Network](mem--disk.md)
     * [Application](application.md)
 
