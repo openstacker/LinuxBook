@@ -57,6 +57,20 @@ sysctl\_panic\_on\_oom内核参数的配置就是针对这种情况下两种不�
 
 ## 网络相关
 
+网络调优基本体现在大量的内核参数中：
 
+net.ipv4.tcp\_keepalive\_time： 指定时间内如果某条tcp连接处于空闲状态，内核则会向对端发起探测以检测连接状态
 
-###
+net.ipv4.tcp_keepalive_intvl： 内核针对tcp连接的keepalive间隔
+
+net.ipv4.tcp_keepalive_probes： 内核针对tcp连接keepalive的最大探测次数，超过该次数无响应则断开连接
+
+net.ipv4.tcp_max_syn_backlog： 内核针对每个端口的tcp syn队列长度，超过该值的syn请求将被丢弃
+
+net.ipv4.tcp_synack_retries： 内核针对某一syn请求的ack回应最大重传次数
+
+net.ipv4.tcp_retries： 内核针对某一tcp连接的最大重传次数
+
+同时配合iptables也可以对服务器的网络活动进行大量的管理，以提高服务器的网络响应质量。
+
+同时当服务器所提供的服务包含大量并发的时候，应该注意ulimit中所支持的最大线程数。
