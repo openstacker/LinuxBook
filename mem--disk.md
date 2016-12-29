@@ -28,5 +28,9 @@ bob    hard    rss    15000
 
 sysctl\_panic\_on\_oom内核参数的配置就是针对这种情况下两种不同的动作而存在的，动态路径为/proc/sys/vm/panic\_on\_oom。
 
-如果选择第二种方式，那么就引入了一个新的问题，
+如果选择第二种方式，那么就引入了一个新的问题，系统如何决定应该杀死哪个进程或哪几个进程呢？
+参数sysctl\oom\_kill\_allocating\_task负责管理这种情形下的动作，为0表示杀掉内存占用最多的进程，为1则表示杀掉触发OOM的进程。
 
+推荐[参考链接](http://www.wowotech.net/memory_management/oom.html)，这里提到了更多的细节的选择，包括oom-killer之后是否生成dump文件，有多个进程关联的时候如何选择等。
+
+## 磁盘相关
