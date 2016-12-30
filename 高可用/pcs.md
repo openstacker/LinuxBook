@@ -1,16 +1,18 @@
 #PCS
 
+---
+
 ##简介
-Pacemaker是一个群集资源管理器，提供资源管理功能，通常与提供了心跳的corosync配合使用，以实现服务的监控与自动维护功能。
+Pacemaker 是一个群集资源管理器，提供资源管理功能，通常与提供了心跳的 corosync 配合使用，以实现服务的监控与自动维护功能。
 
 ##安装部署
-Pacemaker的安装比较简单：
+Pacemaker 的安装比较简单：
 ```shell
 $ sudo yum install pcs pacemaker corosync fence-agents-all
 $ sudo systemctl start pcsd
 ```
 
-安装完成后，要对pcs进行初始化的配置
+安装完成后，要对 pcs 进行初始化的配置
 ```shell
 $ passwd hacluster    #该用户会在安装过程中自动创建
 Changing password for user hacluster    #需要在所有的节点上执行
@@ -56,9 +58,9 @@ PCSD Status:
 ##资源管理
 Pacemaker 本身已经自带了很多常用应用的管理功能。但是如果要使用 Pacemaker 来管理自己实现的服务或是一些别的没现成的东西可用的服务时，就需要自己实现一个资源了。
 
-其中Pacemaker 自带的资源管理程序都在/usr/lib/ocf/resource.d下。
+其中  Pacemaker 自带的资源管理程序都在/usr/lib/ocf/resource.d下。
 
-查看pcs支持的资源代理标准：
+查看 pcs 支持的资源代理标准：
 ```shell
 $ pcs resource standards
 ocf
@@ -68,7 +70,7 @@ systemd
 stonith
 ```
 
-查看pacemaker支持资源高可用的列表：
+查看 pacemaker 支持资源高可用的列表：
 ```shell
 $  pcs resource list
 ocf:.isolation:docker-wrapper - docker wrapper
