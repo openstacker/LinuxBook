@@ -23,15 +23,14 @@ declare 用来声明shell中的变量。
 
 set 用来设置 shell 中选项。
 
-refer: http://linux.vbird.org/linux_basic/0320bash/0320bash-fc4.php
+Linux shell 基本入门书籍: [http://linux.vbird.org/linux_basic/0320bash/0320bash-fc4.php](http://linux.vbird.org/linux_basic/0320bash/0320bash-fc4.php)
 
 ### vi
 
 编辑器
 
-refer: http://linux.vbird.org/linux_basic/0310vi.php
+介绍 vi 基本使用: [http://linux.vbird.org/linux_basic/0310vi.php](http://linux.vbird.org/linux_basic/0320bash/0320bash-fc4.php)
 
 ### shell script
 
-shell 脚本语言
-refer： http://www.freeos.com/guides/lsst/
+shell 基本语法：[http://www.freeos.com/guides/lsst/](http://linux.vbird.org/linux_basic/0320bash/0320bash-fc4.php)
